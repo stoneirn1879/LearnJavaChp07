@@ -8,26 +8,29 @@ public class IfCelsFahr {
 
         String scale;
         int temperature;
+        int displayTemp;
 
-        System.out.println("Please enter your temperature: ");
+        System.out.println("Please enter your local temperature: ");
         temperature = sc.nextInt();
 
-        System.out.println("Please enter your temperature scale: C/F ");
+        System.out.println("Please enter your local temperature scale: C/F ");
         scale = sc.next();
 
+        if (scale.equals("C")) {
 
-        switch(scale)
-            {
-                case "C":
-                    System.out.println("The temperature is " + temperature + scale);
-                break;
+            displayTemp = (temperature * 9/5) + 32;
+            System.out.println(temperature + "C = " + displayTemp + "F");
+        }
 
-                case "F":
-                    System.out.println("The temperature is " + temperature + scale);
-                break;
+        else if (scale.equals("F")) {
 
-            }
+            displayTemp = (temperature * 5/9) - 32;
+            System.out.println(temperature + "F = " + displayTemp + "C");
+        }
 
+        else {
+            System.out.println("Please enter your temperature in degrees followed by desired scale C/F");
+        }
 
         sc.close();
 
